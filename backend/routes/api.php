@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PerfisController;
 use App\Http\Controllers\ProcedimentosController;
 use App\Http\Controllers\AgendamentosController;
 
@@ -33,6 +34,16 @@ Route::middleware('auth:api')->group(function () {
         Route::patch('/userEditar/{id}', [UserController::class, 'userEditar']);
         Route::post('/userFiltrar', [UserController::class, 'userFiltrar']);
         Route::delete('/userDeletar/{id}', [UserController::class, 'userDeletar']);
+    });
+
+    // Rotas de perfis
+    Route::prefix('perfis')->group(function () {
+        Route::post('/perfilCadastrar', [PerfisController::class, 'perfilCadastrar']);
+        Route::get('/perfilConsultar/{id}', [PerfisController::class, 'perfilConsultar']);
+        Route::get('/perfilListar', [PerfisController::class, 'perfilListar']);
+        Route::patch('/perfilEditar/{id}', [PerfisController::class, 'perfilEditar']);
+        Route::post('/perfilFiltrar', [PerfisController::class, 'perfilFiltrar']);
+        Route::delete('/perfilDeletar/{id}', [PerfisController::class, 'perfilDeletar']);
     });
 
     // Rotas de procedimentos
