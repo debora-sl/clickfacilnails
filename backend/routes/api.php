@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProcedimentosController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -31,6 +32,16 @@ Route::middleware('auth:api')->group(function () {
         Route::patch('/userEditar/{id}', [UserController::class, 'userEditar']);
         Route::post('/userFiltrar', [UserController::class, 'userFiltrar']);
         Route::delete('/userDeletar/{id}', [UserController::class, 'userDeletar']);
+    });
+
+    // Rotas de procedimentos
+    Route::prefix('procedimentos')->group(function () {
+        Route::post('/procedimentoCadastrar', [ProcedimentosController::class, 'procedimentoCadastrar']);
+        Route::get('/procedimentoConsultar/{id}', [ProcedimentosController::class, 'procedimentoConsultar']);
+        Route::get('/procedimentoListar', [ProcedimentosController::class, 'procedimentoListar']);
+        Route::patch('/procedimentoEditar/{id}', [ProcedimentosController::class, 'procedimentoEditar']);
+        Route::post('/procedimentoFiltrar', [ProcedimentosController::class, 'procedimentoFiltrar']);
+        Route::delete('/procedimentoDeletar/{id}', [ProcedimentosController::class, 'procedimentoDeletar']);
     });
 });
 
