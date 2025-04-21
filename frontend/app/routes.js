@@ -11,5 +11,25 @@ angular.module('meuApp', ['ui.router'])
                 templateUrl: 'app/views/home.html',
                 controller: 'HomeController'
             })
+            .state('login', {
+                url: '/login',
+                templateUrl: 'app/views/paginas/login.html',
+                controller: 'LoginController'
+            })
+            .state('logout', {
+                url: '/logout',
+                templateUrl: 'app/views/paginas/logout.html',
+                controller: 'LogoutController'
+            })
+            .state('userCadastrar', {
+                url: '/userCadastrar',
+                templateUrl: 'app/views/paginas/userCadastrar.html',
+                controller: 'UserCadastrarController'
+            })
+            .state('agendaClientes', {
+                url: '/agendaClientes',
+                templateUrl: 'app/views/paginas/agendaClientes.html',
+                controller: 'AgendaClientesController'
+            })
         $urlRouterProvider.otherwise('/');
     });
