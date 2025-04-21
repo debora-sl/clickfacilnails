@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body, html {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+    color: #333;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Container Geral */
+  .home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 1rem 4rem; /* espaço para header e footer fixos */
+    width: 100%;
+  }
+  
+  /* Cabeçalho */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffe6f0;
+    border-bottom: 1px solid #f0c0d0;
+  
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #cc3366;
+  }
+  
+  .menu {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .menu .btn {
+    padding: 0.5rem 1rem;
+    background-color: #cc3366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .menu .btn:hover {
+    background-color: #b02c59;
+  }
+  
+  /* Contato */
+  .contact-section {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+  
+  .contact-link {
+    text-decoration: none;
+    color: #cc3366;
+    font-weight: 500;
+  }
+  
+  /* Carrossel */
+  .carousel-section {
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  .carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .carousel-items {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 1rem;
+    scroll-behavior: smooth;
+  }
+  
+  .carousel-item {
+    min-width: 200px;
+    padding: 1rem;
+    background-color: #ffe6f0;
+    border-radius: 12px;
+    box-shadow: 0 0 5px #ddd;
+    flex-shrink: 0;
+  }
+  
+  .carousel-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #cc3366;
+    cursor: pointer;
+  }
+  
+  /* Agenda */
+  .agenda-section {
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  .agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    overflow-x: auto;
+  }
+  
+  .day-column {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 1rem;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+  }
+  
+  .day-column h3 {
+    color: #cc3366;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .hora {
+    margin: 0.25rem 0;
+    text-align: center;
+  }
+  
+  .agendado {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .livre {
+    color: green;
+    font-weight: bold;
+  }
+  
+  /* Rodapé */
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    font-size: 0.9rem;
+    color: #666;
+  
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .menu {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  
+    .carousel-item {
+      min-width: 150px;
+    }
+  
+    .agenda-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+  
+    .day-column {
+      flex: 0 0 auto;
+      margin-right: 1rem;
+    }
+  
+    .contact-section {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
