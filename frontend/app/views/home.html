@@ -35,64 +35,12 @@
     <section class="agenda-section">
         <h2>Agenda</h2>
         <div class="agenda-grid">
-          <div class="day-column">
-            <h3>Segunda</h3>
-            <div class="hora">08:00 - Livre</div>
-            <div class="hora">09:00 - Agendado</div>
-            <div class="hora">10:00 - Agendado</div>
-            <div class="hora">11:00 - Agendado</div>
-            <div class="hora">14:00 - Livre</div>
-            <div class="hora">15:00 - Livre</div>
-            <div class="hora">16:00 - Agendado</div>
-            <div class="hora">17:00 - Agendado</div>
-            <div class="hora">18:00 - Agendado</div>
+          <div class="day-column" ng-repeat="(index, dia) in diaDaSemana">
+            <h3>{{dia.nomeDia}}-{{dia.dataFormatada}}</h3>
+            <div class="hora" ng-repeat="item in agendamentos | filter:{data_agendamento: dia.dataCompleta}">
+              {{item.horarioFormatado}} - {{item.status_agendamento}}
+            </div>
           </div>
-          <div class="day-column">
-            <h3>Terça</h3>
-            <div class="hora">08:00 - Agendado</div>
-            <div class="hora">09:00 - Livre</div>
-            <div class="hora">10:00 - Livre</div>
-            <div class="hora">11:00 - Agendado</div>
-          </div>
-          <div class="day-column">
-            <h3>Quarta</h3>
-            <div class="hora">08:00 - Livre</div>
-            <div class="hora">09:00 - Livre</div>
-            <div class="hora">10:00 - Agendado</div>
-            <div class="hora">11:00 - Livre</div>
-          </div>
-          <div class="day-column">
-            <h3>Quinta</h3>
-            <div class="hora">08:00 - Livre</div>
-            <div class="hora">09:00 - Livre</div>
-            <div class="hora">10:00 - Livre</div>
-            <div class="hora">11:00 - Agendado</div>
-            <div class="hora">14:00 - Livre</div>
-            <div class="hora">15:00 - Livre</div>
-            <div class="hora">16:00 - Agendado</div>
-            <div class="hora">17:00 - Agendado</div>
-            <div class="hora">18:00 - Agendado</div>
-          </div>
-          <div class="day-column">
-            <h3>Sexta</h3>
-            <div class="hora">08:00 - Agendado</div>
-            <div class="hora">09:00 - Agendado</div>
-            <div class="hora">10:00 - Agendado</div>
-            <div class="hora">11:00 - Agendado</div>
-            <div class="hora">14:00 - Agendado</div>
-            <div class="hora">15:00 - Agendado</div>
-            <div class="hora">16:00 - Agendado</div>
-            <div class="hora">17:00 - Agendado</div>
-            <div class="hora">18:00 - Agendado</div>
-          </div>
-          <div class="day-column">
-            <h3>Sábado</h3>
-            <div class="hora">08:00 - Livre</div>
-            <div class="hora">09:00 - Livre</div>
-            <div class="hora">10:00 - Livre</div>
-            <div class="hora">11:00 - Livre</div>
-          </div>
-        </div>
       </section>
   
     <!-- Rodapé -->

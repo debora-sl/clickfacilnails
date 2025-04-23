@@ -135,6 +135,7 @@
     border: 1px solid #eee;
     border-radius: 10px;
     padding: 1rem;
+    width: 175px;
     min-width: 150px;
     display: flex;
     flex-direction: column;
@@ -150,6 +151,7 @@
   .hora {
     margin: 0.25rem 0;
     text-align: center;
+    width: 150px;
   }
   
   .agendado {
