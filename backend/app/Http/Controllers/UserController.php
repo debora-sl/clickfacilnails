@@ -5,10 +5,24 @@ namespace App\Http\Controllers;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 use Illuminate\Http\Request;
+use DateTime;
+
 use App\Models\User;
 
 class UserController extends Controller
 {
+    // para converter as datas
+    public static function javascriptDateToPhpDate($data)
+    {
+        if ($data == null)
+            return null;
+
+        $date = new DateTime($data);
+        $date->setTimezone(new \DateTimeZone('America/Fortaleza'));
+        $date->modify('+3 hours');
+
+        return $date;
+    }
     // Cadastrar novos usuários (usuários não autenticados)
     public function userCadastrar(Request $request)
     {
@@ -20,13 +34,21 @@ class UserController extends Controller
 
         // Criando o usuário
         $user = new User();
-        $user->id_perfil = $request->id_perfil;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-        $user->nascimento = $request->nascimento;
         $user->celular = $request->celular;
         $user->created_by = 0;
+
+        // Datas
+        if (isset($request->nascimento))
+            $user->nascimento = static::javascriptDateToPhpDate($request->nascimento);
+
+
+        // Setando para que não seja null para não dar erro ao cadastrar
+        if (isset($request->id_perfil))
+            $user->id_perfil = $request->id_perfil;
+
         $user->save();
 
         return response('Usuário cadastrado: ' . $user, 201);

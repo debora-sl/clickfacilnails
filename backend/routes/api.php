@@ -23,6 +23,9 @@ use App\Http\Controllers\AgendamentosController;
 // Rotas não autenticadas para cadastrar, logar e logout
 Route::post('users/userCadastrar', [UserController::class, 'userCadastrar']);
 Route::post('userLogin', [UserController::class, 'userLogar']);
+Route::middleware('auth:api')->get('/logout', [AuthController::class, 'logout']);
+
+Route::get('agendamentos/agendamentoListarHome', [AgendamentosController::class, 'agendamentoListarPaginaHomeFront']);
 
 // Rotas (usuários que estejam autenticados)
 Route::middleware('auth:api')->group(function () {
