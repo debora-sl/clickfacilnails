@@ -26,6 +26,7 @@ Route::post('userLogin', [UserController::class, 'userLogar']);
 Route::middleware('auth:api')->get('/logout', [AuthController::class, 'logout']);
 
 Route::get('agendamentos/agendamentoListarHome', [AgendamentosController::class, 'agendamentoListarPaginaHomeFront']);
+Route::get('agendamentos/agendamentoFiltrarHome', [AgendamentosController::class, 'agendamentoFiltrarPaginaHomeFront']);
 
 // Rotas (usuários que estejam autenticados)
 Route::middleware('auth:api')->group(function () {
