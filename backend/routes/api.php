@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PerfisController;
-use App\Http\Controllers\ProcedimentosController;
+use App\Http\Controllers\ServicosController;
 use App\Http\Controllers\AgendamentosController;
 
 /*
@@ -50,14 +50,14 @@ Route::middleware('auth:api')->group(function () {
         Route::delete('/perfilDeletar/{id}', [PerfisController::class, 'perfilDeletar']);
     });
 
-    // Rotas de procedimentos
-    Route::prefix('procedimentos')->group(function () {
-        Route::post('/procedimentoCadastrar', [ProcedimentosController::class, 'procedimentoCadastrar']);
-        Route::get('/procedimentoConsultar/{id}', [ProcedimentosController::class, 'procedimentoConsultar']);
-        Route::get('/procedimentoListar', [ProcedimentosController::class, 'procedimentoListar']);
-        Route::patch('/procedimentoEditar/{id}', [ProcedimentosController::class, 'procedimentoEditar']);
-        Route::post('/procedimentoFiltrar', [ProcedimentosController::class, 'procedimentoFiltrar']);
-        Route::delete('/procedimentoDeletar/{id}', [ProcedimentosController::class, 'procedimentoDeletar']);
+    // Rotas de Servicos
+    Route::prefix('Servicos')->group(function () {
+        Route::post('/servicoCadastrar', [ServicosController::class, 'servicoCadastrar']);
+        Route::get('/servicoConsultar/{id}', [ServicosController::class, 'servicoConsultar']);
+        Route::get('/servicoListar', [ServicosController::class, 'servicoListar']);
+        Route::patch('/servicoEditar/{id}', [ServicosController::class, 'servicoEditar']);
+        Route::post('/servicoFiltrar', [ServicosController::class, 'servicoFiltrar']);
+        Route::delete('/servicoDeletar/{id}', [ServicosController::class, 'servicoDeletar']);
     });
 
     // Rotas de agendamentos
