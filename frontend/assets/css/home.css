@@ -67,21 +67,27 @@
     background-color: #b02c59;
   }
   
-  /* Contato */
-  .contact-section {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 1rem;
-    margin: 2rem 0;
-    flex-wrap: wrap;
-  }
-  
   .contact-link {
     text-decoration: none;
     color: #cc3366;
     font-weight: 500;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.contact-link i {
+    font-size: 1.5rem;
+}
+
+.contact-link:hover {
+    color: #b02c59;
+}
+
   
   /* Carrossel */
   .carousel-section {
