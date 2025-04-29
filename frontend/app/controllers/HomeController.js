@@ -2,6 +2,28 @@ angular.module('meuApp')
     .controller('HomeController', function ($scope, $http, $state) {
         console.log('HomeController funcionou!');
 
+        // Criando o objeto servicos
+        $scope.servicos = [];
+
+        // Função que lista os servicos
+        $scope.servicoListar = function () {
+            $urlServicoListar = 'http://localhost:8000/api/servicos/servicoListar';
+
+            $http.get($urlServicoListar).then(function (response) {
+                if (response.status == 200) {
+                    $scope.servicos = response.data.servicos;
+                    console.log('Servicos', $scope.servicos);
+                }
+
+            }, function (error) {
+                console.log('Erro: ', error);
+
+            })
+        }
+
+        // Chamando a função listar
+        $scope.servicoListar();
+
         // Variavel dia da semana
         $scope.diaDaSemana = tratarDiasSemana();
 
@@ -42,8 +64,6 @@ angular.module('meuApp')
             return dias;
         }
 
-
-
         // Criando o objeto agendamentos
         $scope.agendamentos = [];
 
@@ -65,6 +85,8 @@ angular.module('meuApp')
 
         // Função que formata os horários para padrão brasileiro (hh:mm)
         function tratarHorarios(dados) {
+            console.log(dados);
+
             for (let i = 0; i < dados.length; i++) {
                 // Converte a string em objeto Date
                 let horaOriginal = new Date('1970-01-01T' + dados[i].horario_agendamento);
