@@ -28,6 +28,8 @@ Route::middleware('auth:api')->get('/logout', [AuthController::class, 'logout'])
 Route::get('agendamentos/agendamentoListarHome', [AgendamentosController::class, 'agendamentoListarPaginaHomeFront']);
 Route::get('agendamentos/agendamentoFiltrarHome', [AgendamentosController::class, 'agendamentoFiltrarPaginaHomeFront']);
 
+Route::get('servicos/servicoListar', [ServicosController::class, 'servicoListar']);
+
 // Rotas (usuários que estejam autenticados)
 Route::middleware('auth:api')->group(function () {
 
@@ -51,10 +53,10 @@ Route::middleware('auth:api')->group(function () {
     });
 
     // Rotas de Servicos
-    Route::prefix('Servicos')->group(function () {
+    Route::prefix('servicos')->group(function () {
         Route::post('/servicoCadastrar', [ServicosController::class, 'servicoCadastrar']);
         Route::get('/servicoConsultar/{id}', [ServicosController::class, 'servicoConsultar']);
-        Route::get('/servicoListar', [ServicosController::class, 'servicoListar']);
+
         Route::patch('/servicoEditar/{id}', [ServicosController::class, 'servicoEditar']);
         Route::post('/servicoFiltrar', [ServicosController::class, 'servicoFiltrar']);
         Route::delete('/servicoDeletar/{id}', [ServicosController::class, 'servicoDeletar']);
