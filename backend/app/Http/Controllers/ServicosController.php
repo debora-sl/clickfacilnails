@@ -9,15 +9,15 @@ use App\Models\Servicos;
 class ServicosController extends Controller
 {
     // Cadastrar novos servicos
-    public function procedimentoCadastrar(Request $request)
+    public function servicoCadastrar(Request $request)
     {
         // Criar servico
         $servico = new Servicos();
-        $servico->tipo_procedimento = $request->tipo_procedimento;
-        $servico->duracao_procedimento = $request->duracao_procedimento;
-        $servico->preco_procedimento = $request->preco_procedimento;
-        $servico->descricao_procedimento = $request->descricao_procedimento;
-        $servico->status_procedimento = $request->status_procedimento;
+        $servico->tipo_servico = $request->tipo_servico;
+        $servico->duracao_servico = $request->duracao_servico;
+        $servico->preco_servico = $request->preco_servico;
+        $servico->descricao_servico = $request->descricao_servico;
+        $servico->status_servico = $request->status_servico;
         $servico->created_by = auth()->id();
 
         // Salvando no BD
@@ -31,10 +31,10 @@ class ServicosController extends Controller
     }
 
     // Consultar servicos
-    public function procedimentoConsultar($id)
+    public function servicoConsultar($id)
     {
         // Selecionando servicos que o usuário administrador criou
-        $servico = Servicos::select('id', 'tipo_procedimento', 'duracao_procedimento', 'preco_procedimento', 'descricao_procedimento', 'status_procedimento')->where('id', $id)->where('created_by', auth()->id())->first();
+        $servico = Servicos::select('id', 'tipo_servico', 'duracao_servico', 'preco_servico', 'descricao_servico', 'status_servico')->where('id', $id)->where('created_by', auth()->id())->first();
 
         // Verificando se o servico é null
         if (!$servico)
@@ -48,10 +48,10 @@ class ServicosController extends Controller
     }
 
     // Listar servicos
-    public function procedimentoListar()
+    public function servicoListar()
     {
         // selecionando as colunas que serão exibidas
-        $servico = Servicos::select('id', 'tipo_procedimento', 'duracao_procedimento', 'preco_procedimento', 'descricao_procedimento', 'status_procedimento')->get();
+        $servico = Servicos::select('id', 'tipo_servico', 'duracao_servico', 'preco_servico', 'descricao_servico', 'status_servico')->get();
 
         // retornando com estrutura JSON para o front consumir
         return response()->json([
@@ -61,29 +61,29 @@ class ServicosController extends Controller
     }
 
     // Editar servico
-    public function procedimentoEditar(Request $request, $id)
+    public function servicoEditar(Request $request, $id)
     {
         // Buscando o servico pelo id
         $servico = Servicos::where('id', $id)->first();
 
         // Checando se o campo está sendo solicitado para ediçaõ
-        if (isset($request->tipo_procedimento))
-            $servico->tipo_procedimento = $request->tipo_procedimento;
+        if (isset($request->tipo_servico))
+            $servico->tipo_servico = $request->tipo_servico;
 
-        if (isset($request->duracao_procedimento))
-            $servico->duracao_procedimento = $request->duracao_procedimento;
+        if (isset($request->duracao_servico))
+            $servico->duracao_servico = $request->duracao_servico;
 
-        if (isset($request->preco_procedimento))
-            $servico->preco_procedimento = $request->preco_procedimento;
+        if (isset($request->preco_servico))
+            $servico->preco_servico = $request->preco_servico;
 
-        if (isset($request->descricao_procedimento))
-            $servico->descricao_procedimento = $request->descricao_procedimento;
+        if (isset($request->descricao_servico))
+            $servico->descricao_servico = $request->descricao_servico;
 
-        if (isset($request->observacao_procedimento))
-            $servico->observacao_procedimento = $request->observacao_procedimento;
+        if (isset($request->observacao_servico))
+            $servico->observacao_servico = $request->observacao_servico;
 
-        if (isset($request->status_procedimento))
-            $servico->status_procedimento = $request->status_procedimento;
+        if (isset($request->status_servico))
+            $servico->status_servico = $request->status_servico;
 
         $servico->updated_by = auth()->id();
         $servico->save();
@@ -96,7 +96,7 @@ class ServicosController extends Controller
     }
 
     // Filtrar servicos
-    public function procedimentoFiltrar(Request $request)
+    public function servicoFiltrar(Request $request)
     {
         // Inicia a query com uma condição sempre verdadeira para permitir adicionar filtros dinamicamente
         $servico = Servicos::whereRaw('1=1');
@@ -106,17 +106,17 @@ class ServicosController extends Controller
             $servico->where('created_by', $request->created_by);
 
         /* Se informado, busca servicos cujo nome,e-mail, nascimento e celular contenha o valor informado (filtro parcial) */
-        if (isset($request->tipo_procedimento))
-            $servico->where('tipo_procedimento', 'like', "%$request->tipo_procedimento%");
+        if (isset($request->tipo_servico))
+            $servico->where('tipo_servico', 'like', "%$request->tipo_servico%");
 
-        if (isset($request->duracao_procedimento))
-            $servico->where('duracao_procedimento', 'like', "%$request->duracao_procedimento%");
+        if (isset($request->duracao_servico))
+            $servico->where('duracao_servico', 'like', "%$request->duracao_servico%");
 
-        if (isset($request->preco_procedimento))
-            $servico->where('preco_procedimento', 'like', "%$request->preco_procedimento%");
+        if (isset($request->preco_servico))
+            $servico->where('preco_servico', 'like', "%$request->preco_servico%");
 
-        if (isset($request->status_procedimento))
-            $servico->where('status_procedimento', 'like', "%$request->status_procedimento%");
+        if (isset($request->status_servico))
+            $servico->where('status_servico', 'like', "%$request->status_servico%");
 
         $servico = $servico->get();
 
@@ -128,7 +128,7 @@ class ServicosController extends Controller
     }
 
     // Deletar servico
-    public function procedimentoDeletar($id)
+    public function servicoDeletar($id)
     {
         // Buscando o servico pelo id
         $servico = Servicos::where('id', $id)->first();

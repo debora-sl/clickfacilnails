@@ -53,6 +53,19 @@ class AgendamentosController extends Controller
         ], 200);
     }
 
+    // Listar agendamentos para usuários não autenticados. Para que no Front seja exibido apenas a agenda
+    public function agendamentoListarPaginaHomeFront()
+    {
+        // selecionando as colunas que serão exibidas
+        $agendamento = Agendamentos::select('id', 'data_agendamento', 'horario_agendamento', 'status_agendamento')->get();
+
+        // retornando com estrutura JSON para o front consumir
+        return response()->json([
+            'mensagem' => 'Lista de Agendamentos cadastrados: ',
+            'agendamentos' => $agendamento
+        ], 200);
+    }
+
     // Listar agendamentos
     public function agendamentoListar()
     {
@@ -62,7 +75,7 @@ class AgendamentosController extends Controller
         // retornando com estrutura JSON para o front consumir
         return response()->json([
             'mensagem' => 'Lista de Agendamentos cadastrados: ',
-            'agendamentos: ' => $agendamento
+            'agendamentos:' => $agendamento
         ], 200);
     }
 
@@ -94,6 +107,29 @@ class AgendamentosController extends Controller
         // retornando com estrutura JSON para o front consumir
         return response()->json([
             'mensagem' => 'Agendamento editado: ',
+            'agendamento' => $agendamento
+        ], 200);
+    }
+
+    // Filtrar agendamentos para usuários não autenticados. Para que no Front seja exibido apenas a agenda
+    public function agendamentoFiltrarPaginaHomeFront()
+    {
+        // Inicia a query com uma condição sempre verdadeira para permitir adicionar filtros dinamicamente
+        $agendamento = Agendamentos::whereRaw('1=1');
+
+        /* Se informado, busca agendamentos cujo data,e-mail contenha o valor informado (filtro parcial) */
+        if (isset($request->data_agendamento))
+            $agendamento->has('data_agendamento', 'like', "%$request->data_agendamento%");
+        if (isset($request->horario_agendamento))
+            $agendamento->where('horario_agendamento', 'like', "%$request->horario_agendamento%");
+        if (isset($request->status_agendamento))
+            $agendamento->where('status_agendamento', 'like', "%$request->status_agendamento%");
+
+        $agendamento = $agendamento->get();
+
+        // retornando com estrutura JSON para o front consumir
+        return response()->json([
+            'mensagem' => 'Dados filtrados: ',
             'agendamento' => $agendamento
         ], 200);
     }
