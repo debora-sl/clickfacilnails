@@ -64,6 +64,4 @@ angular.module('meuApp')
             }
 
         }
-
-
     })
