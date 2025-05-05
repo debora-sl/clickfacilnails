@@ -16,7 +16,7 @@ angular.module('meuApp')
                 }
 
             }, function (error) {
-                console.log('Erro: ', error);
+                console.log('Erro para listar: ', error);
 
             })
         }
