@@ -56,7 +56,7 @@ class ServicosController extends Controller
         // retornando com estrutura JSON para o front consumir
         return response()->json([
             'mensagem' => 'Lista de Servicos cadastrados: ',
-            'servicos: ' => $servico
+            'servicos' => $servico
         ], 200);
     }
 
