@@ -20,7 +20,7 @@ angular.module('meuApp')
                 localStorage.setItem('token', response.data.token);
 
                 // Enviando o usuário para a página de home de usuários logados
-                $state.go('agendaClientes');
+                $state.go('agendaAdmProprietaria');
 
             }, function (error) {
                 console.log('Erro', error);
