@@ -67,6 +67,15 @@
   .menu .btn:hover {
     background-color: #b02c59;
   }
+
+  .contact-section{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    padding: 2px;
+  }
   
   .contact-link {
     text-decoration: none;
@@ -79,6 +88,7 @@
     gap: 0.5rem;
     transition: color 0.3s ease;
     font-size: 1.2rem;
+    padding: 5px;
 }
 
 .contact-link i {
@@ -94,6 +104,7 @@
   .carousel-section {
     padding: 1rem 0;
     text-align: center;
+
   }
   
   .carousel {
