@@ -24,7 +24,6 @@ angular.module('meuApp')
         // Chamando a função listar
         $scope.servicoListar();
 
-
         // Variavel dia da semana
         $scope.diaDaSemana = tratarDiasSemana();
 
