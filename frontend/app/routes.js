@@ -26,6 +26,11 @@ angular.module('meuApp', ['ui.router'])
                 templateUrl: 'app/views/paginas/userCadastrar.html',
                 controller: 'UserCadastrarController'
             })
+            .state('agendaAdmProprietaria', {
+                url: '/agendaAdmProprietaria',
+                templateUrl: 'app/views/paginas/agendaAdmProprietaria.html',
+                controller: 'AgendaAdmProprietariaController'
+            })
             .state('agendaClientes', {
                 url: '/agendaClientes',
                 templateUrl: 'app/views/paginas/agendaClientes.html',

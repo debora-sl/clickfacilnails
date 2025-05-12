@@ -106,6 +106,23 @@
     text-align: center;
 
   }
+
+  .div-titulos{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-left: 1em;
+
+  }
+
+  .titulos{
+
+    font-size: 2.5rem;
+    margin-left: 5em;
+
+  }
   
   .carousel {
     position: relative;
@@ -138,11 +155,73 @@
     color: #cc3366;
     cursor: pointer;
   }
+
+/* Botão Adicionar Serviço */
+.add-service-btn {
+  background-color: #cc3366;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.80rem;
+  margin: 1rem 2rem 0 10rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  width: 170px;
+  height: 35px;
+}
+
+.add-service-btn:hover {
+  background-color: #b02c59;
+}
+
+/* Ícone de edição na seção de contatos */
+.edit-icon {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover .edit-icon {
+  color: #b02c59;
+}
+
   
   /* Agenda */
   .agenda-section h2{
     text-align: center;
+    margin-left: 6em;
   }
+
+  /* Botão Adicionar Agendamento */
+.add-scheduling-btn {
+  background-color: #cc3366;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.80rem;
+  margin: 1rem 2rem 0 10rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+  width: 220px;
+  height: 35px;
+}
+
+.add-scheduling-btn:hover {
+  background-color: #b02c59;
+}
   .agenda-grid {
     display: flex;
     flex-direction: row;
