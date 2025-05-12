@@ -24,6 +24,12 @@ angular.module('meuApp')
         // Chamando a função listar
         $scope.servicoListar();
 
+        // Função que adiciona serviço
+        $scope.servicoCadastrar = function () {
+            console.log('Funcionou!');
+
+        }
+
         // Variavel dia da semana
         $scope.diaDaSemana = tratarDiasSemana();
 
