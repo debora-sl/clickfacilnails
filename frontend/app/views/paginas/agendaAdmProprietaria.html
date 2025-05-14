@@ -4,7 +4,7 @@
       <div class="logo">Nails</div>
       <nav class="menu">
         <button class="btn" ui-sref="login" ng-show="acao == 'listando'">Agende</button>
-        <button class="btn" ui-sref="agendaAdmProprietaria" ng-show="acao == 'cadastrando'">Home</button>
+        <button class="btn" ng-show="acao == 'cadastrando'" ng-click="listandoServicoAcao()">Home</button>
         <button type="button" class="btn" ui-sref="logout">Sair</button>
       </nav>
     </header>
@@ -54,7 +54,8 @@
       <form class="servico-formulario">
         <div class="servico-linhas-selects">
           <label for="tipoServico">Tipo de Serviço</label>
-          <select name="tipoServico" id="">
+          <select name="tipoServico" id="" ng-model="novoServico.tipoServico">
+            <option value="">Selecione</option>
             <option value="Alongamento de Unhas">Alongamento de Unhas</option>
             <option value="Esmaltação em Gel">Esmaltação em Gel</option>
             <option value="Manicure Simples">Manicure Simples</option>
@@ -65,7 +66,8 @@
           </select> 
 
           <label for="statusServico" class="servico-linhas-label-segundo">Status do Serviço</label>
-          <select name="statusServico" id="">
+          <select name="statusServico" id="" ng-model="novoServico.statusServico">
+            <option value="">Selecione</option>
             <option value="Ativo">Ativo</option>
             <option value="Inativo">Inativo</option>
           </select>
@@ -73,18 +75,18 @@
 
         <div class="servico-linhas-inputs">
           <label for="duracaoServico">Duração do Serviço:</label>
-          <input type="time" id="duracaoServico" required>
+          <input type="time" id="duracaoServico" required ng-model="novoServico.duracaoServico"> 
     
           <label for="precoServico" class="servico-linhas-label-quarto">Preço do Serviço:</label>
-          <input type="number" step="0.01" min="0" id="precoServico" placeholder="R$" required>
+          <input type="number" step="0.01" min="0" id="precoServico" placeholder="R$" required ng-model="novoServico.precoServico">
         </div>
 
         <div class="servico-linhas-area">
           <label for="descricaoServico">Descrição do Serviço:</label>
-          <textarea name="descricaoServico" id="descricaoServico" placeholder="Descreva o serviço" required></textarea>
+          <textarea name="descricaoServico" id="descricaoServico" placeholder="Descreva o serviço" required ng-model="novoServico.descricaoServico"></textarea>
         </div>
         
-        <button type="button" class="btn-servico" ng-click="">Cadastrar</button>
+        <button type="button" class="btn-servico" ng-click="servicoCadastrar()">Cadastrar</button>
       </form>
 
       </div>

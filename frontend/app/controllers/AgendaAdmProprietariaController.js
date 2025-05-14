@@ -2,8 +2,25 @@ angular.module('meuApp')
     .controller('AgendaAdmProprietariaController', function ($scope, $http, $state) {
         console.log('AgendaAdmProprietariaController funcionou!');
 
+        // pegando o token e passando para a config
+        $token = localStorage.getItem('token');
+        $config = {
+            headers: {
+                'Authorization': 'Bearer ' + $token,
+                'Content-Type': 'application/json' // p/ envio ao back
+            }
+        }
+
         // Criando o objeto servicos
         $scope.servicos = [];
+
+        // Variavel para novo serviço
+        $scope.novoServico = {
+            tipoServico: '',
+            statusServico: '',
+            duracaoServico: '',
+            precoServico: 0
+        }
 
         // Variavel para listar serviços
         $scope.acao = 'listando';
@@ -39,7 +56,49 @@ angular.module('meuApp')
 
         // Função que adiciona serviço
         $scope.servicoCadastrar = function () {
-            console.log('Funcionou!');
+            duracao = $scope.novoServico.duracaoServico;
+
+            // Caso a duração seja um Date ou algo inválido
+            let horaFormatada = '';
+            if (duracao instanceof Date) {
+                horas = duracao.getHours().toString().padStart(2, '0');
+                minutos = duracao.getMinutes().toString().padStart(2, '0');
+                //segundos = duracao.getSeconds().toString().padStart(2, '0');
+                horaFormatada = `${horas}:${minutos}`;
+            } else if (typeof duracao === 'string') {
+                horaFormatada = duracao;
+            } else {
+                alert('Formato de duração inválido.');
+                return;
+            }
+
+            // Validação do formato
+            if (!horaFormatada.match(/^\d{2}:\d{2}$/)) {
+                alert('Por favor, insira a duração no formato HH:mm.');
+                return;
+            }
+
+            // Cria o objeto com os campos que o backend espera (snake_case)
+            servicoParaEnviar = {
+                tipo_servico: $scope.novoServico.tipoServico,
+                duracao_servico: horaFormatada,
+                preco_servico: $scope.novoServico.precoServico,
+                descricao_servico: $scope.novoServico.descricaoServico,
+                status_servico: $scope.novoServico.statusServico
+            };
+
+            console.log('Serviço depois da conversão: ', $scope.novoServico.tipoServico);
+
+            $urlServicoCadastrar = 'http://localhost:8000/api/servicos/servicoCadastrar';
+
+
+            $http.post($urlServicoCadastrar, servicoParaEnviar, $config).then(function (response) {
+                console.log('Serviço cadastrado: ', $scope.novoServico);
+
+            }, function (error) {
+                console.log('Serviço não cadastro. Erro: ', error);
+
+            })
 
         }
 
