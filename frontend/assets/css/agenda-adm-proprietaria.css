@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff0f5;
+  overflow-x: hidden;
+}
+
+/* Seção do formulário de serviço */
+.servico-container {
+  width: 50em;
+  height: 55vh;
+  background-color: #fff0f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: -1.5em;
+
+  border: thin solid black;
+}
+
+/* Caixa do formulário */
+.servico-box {
+  width: 60em;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  height: 30.5em;
+
+  border: thin solid red;
+}
+
+.servico-header{
+    display: flex;
+    width: 30em;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1px;
+
+    margin: -2em 0 -1em 6em;
+
+}
+
+/* Título e botão cancelar */
+.servico-container h2 {
+  margin-bottom: 1rem;
+  color: #b30059;
+  text-align: center;
+}
+
+.cancel-button {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-button:hover {
+  background-color: #cc0000;
+}
+
+
+/* Estilo do formulário */
+form {
+  width: 55rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  border: thin solid pink;
+}
+
+label {
+  font-weight: 600;
+  color: #444;
+}
+
+.servico-linhas-selects{
+  display: flex;
+  flex-direction: row;
+  border: thin solid blue;   
+}
+
+.servico-linhas-label-segundo{
+    margin-left: 1.5em;
+}
+
+.servico-linhas-selects select{    
+  margin-left: 0.5em;
+  width: 25%;
+}
+
+.servico-linhas-inputs{
+  display: flex;
+  flex-direction: row;
+  border: thin solid blue; 
+}
+
+.servico-linhas-label-quarto{
+    margin-left: 3em;
+}
+
+.servico-linhas-inputs input{    
+  margin-left: 0.5em;
+  width: 18%;
+}
+
+.servico-linhas-area{
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  border: thin solid blue; 
+}
+
+.servico-linhas-area textarea{    
+  margin-left: 0.5em;
+  width: 50%;
+  height: 80px;
+}
+
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #ff3399;
+}
+
+/* Botão de cadastrar serviço */
+.btn-servico {
+  background-color: #cc3366;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-servico:hover {
+  background-color: #b02c59;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .servico-box {
+    padding: 1rem;
+  }
+}

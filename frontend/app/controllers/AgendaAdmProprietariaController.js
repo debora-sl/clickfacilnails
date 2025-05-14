@@ -5,6 +5,19 @@ angular.module('meuApp')
         // Criando o objeto servicos
         $scope.servicos = [];
 
+        // Variavel para listar serviços
+        $scope.acao = 'listando';
+
+        // Função que muda o valor da ação para exibir o formulário para adicionar novos serviços
+        $scope.novoServicoAcao = function () {
+            $scope.acao = 'cadastrando';
+        }
+
+        // Função que muda o valor da ação para exibir o formulário para editar serviços
+        $scope.listandoServicoAcao = function () {
+            $scope.acao = 'listando';
+        }
+
         // Função que lista os servicos
         $scope.servicoListar = function () {
             $urlServicoListar = 'http://localhost:8000/api/servicos/servicoListar';
