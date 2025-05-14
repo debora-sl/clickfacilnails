@@ -51,7 +51,7 @@
         <h2>Cadastrar Serviço</h2>
         <button class="cancel-button" ng-click="listandoServicoAcao()">Cancelar</button>
       </div>
-      <form>
+      <form class="servico-formulario">
         <div class="servico-linhas-selects">
           <label for="tipoServico">Tipo de Serviço</label>
           <select name="tipoServico" id="">
@@ -73,15 +73,15 @@
 
         <div class="servico-linhas-inputs">
           <label for="duracaoServico">Duração do Serviço:</label>
-          <input type="time" id="duracaoServico" placeholder="Digite a duração do servico" required>
+          <input type="time" id="duracaoServico" required>
     
           <label for="precoServico" class="servico-linhas-label-quarto">Preço do Serviço:</label>
-          <input type="number" step="0.01" min="0" id="precoServico" placeholder="Digite o preço do servico" required>
+          <input type="number" step="0.01" min="0" id="precoServico" placeholder="R$" required>
         </div>
 
         <div class="servico-linhas-area">
           <label for="descricaoServico">Descrição do Serviço:</label>
-          <textarea name="descricaoServico" id="descricaoServico" placeholder="Descreva o servico" required></textarea>
+          <textarea name="descricaoServico" id="descricaoServico" placeholder="Descreva o serviço" required></textarea>
         </div>
         
         <button type="button" class="btn-servico" ng-click="">Cadastrar</button>
