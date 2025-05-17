@@ -93,7 +93,10 @@ angular.module('meuApp')
 
 
             $http.post($urlServicoCadastrar, servicoParaEnviar, $config).then(function (response) {
-                console.log('Serviço cadastrado: ', $scope.novoServico);
+                if (response.status == 201) {
+                    console.log('Serviço cadastrado: ', $scope.novoServico);
+
+                }
 
             }, function (error) {
                 console.log('Serviço não cadastro. Erro: ', error);
