@@ -35,12 +35,21 @@
       </div>
 
       <div class="carousel">
-        <button class="carousel-btn prev">&#10094;</button>
-        <div class="carousel-items" ng-repeat="item in servicos">
-          <div class="carousel-item">{{item.tipo_servico}}</div>
+          <!-- Caso não tenha serviços cadastrados -->
+          <div class="sem-servicos" ng-if="servicos.length == 0">
+            Nenhum serviço cadastrado no momento. Clique no botão Adicionar Serviço, para cadastrar.
+          </div>
+
+          <!-- Caso tenha serviços -->
+          <div class="carousel" ng-if="servicos.length > 0">
+            <button class="carousel-btn prev">&#10094;</button>
+
+            <div class="carousel-items" ng-repeat="item in servicos">
+              <div class="carousel-item">{{item.tipo_servico}}</div>
+            </div>
+
+            <button class="carousel-btn next">&#10095;</button>
         </div>
-        <button class="carousel-btn next">&#10095;</button>
-      </div>
     </section>
 
     <!--Formulário de adicionar serviço -->
@@ -54,16 +63,7 @@
       <form class="servico-formulario">
         <div class="servico-linhas-selects">
           <label for="tipoServico">Tipo de Serviço</label>
-          <select name="tipoServico" id="" ng-model="novoServico.tipoServico">
-            <option value="">Selecione</option>
-            <option value="Alongamento de Unhas">Alongamento de Unhas</option>
-            <option value="Esmaltação em Gel">Esmaltação em Gel</option>
-            <option value="Manicure Simples">Manicure Simples</option>
-            <option value="Pedicure Simples">Pedicure Simples</option>
-            <option value="Spa das Mãos">Spa das Mãos</option>
-            <option value="Spa das Pés">Spa das Pés</option>
-            <option value="Spa das Mãos/Pés">Spa das Mãos/Pés</option>
-          </select> 
+          <input type="text" name="tipoServico" id="tipoServico" ng-model="novoServico.tipoServico">
 
           <label for="statusServico" class="servico-linhas-label-segundo">Status do Serviço</label>
           <select name="statusServico" id="" ng-model="novoServico.statusServico">
