@@ -24,19 +24,27 @@
   
     <!-- Carrossel -->
     <section class="carousel-section">
-      <h2>Nossos Serviços</h2>
+      <h2 class="titulos">Serviços</h2>
+
       <div class="carousel">
-        <button class="carousel-btn prev">&#10094;</button>
-        <div class="carousel-items" ng-repeat="item in servicos">
-          <div class="carousel-item">{{item.tipo_servico}}</div>
-          <!-- <div class="carousel-item">Esmaltação Simples</div>
-          <div class="carousel-item">Francesinha</div>
-          <div class="carousel-item">Alongamento em Gel</div>
-          <div class="carousel-item">Spa das Mãos</div>
-          <div class="carousel-item">Decoração</div> -->
-        </div>
-        <button class="carousel-btn next">&#10095;</button>
-      </div>
+
+          <!-- Caso não tenha serviços cadastrados -->
+          <div class="sem-servicos" ng-if="servicos.length == 0">
+            Nenhum serviço cadastrado no momento. Clique no botão Adicionar Serviço, para cadastrar.
+          </div>
+
+          <!-- Caso tenha serviços -->
+          <div class="carousel-container" ng-if="servicos.length > 0">
+              <button class="carousel-btn prev">&#10094;</button>
+
+              <div class="carousel-items">
+                <div class="carousel-item" ng-repeat="item in servicos">
+                  {{item.tipo_servico}}
+                </div>
+              </div>
+
+              <button class="carousel-btn next">&#10095;</button>
+          </div>
     </section>
   
     <!-- Agenda -->

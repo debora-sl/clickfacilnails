@@ -102,6 +102,8 @@
     padding: 1rem 0;
     text-align: center;
 
+    border: thin solid red;
+
   }
 
   .div-titulos{
@@ -121,12 +123,14 @@
 
   }
   
-  .carousel {
+.carousel-container {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+    margin: 1rem 0;
+    gap: 1rem;
+}
   
   .carousel-items {
     display: flex;
@@ -134,6 +138,7 @@
     overflow-x: auto;
     padding: 1rem;
     scroll-behavior: smooth;
+    max-width: 90%; /* Faz caber no container */
   }
   
   .carousel-item {
@@ -143,6 +148,8 @@
     border-radius: 12px;
     box-shadow: 0 0 5px #ddd;
     flex-shrink: 0;
+
+    border: thin solid yellow;
   }
   
   .carousel-btn {
@@ -151,6 +158,7 @@
     font-size: 2rem;
     color: #cc3366;
     cursor: pointer;
+    padding: 0 0.5rem;
   }
 
 /* Botão Adicionar Serviço */
