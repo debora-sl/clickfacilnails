@@ -102,8 +102,6 @@
     padding: 1rem 0;
     text-align: center;
 
-    border: thin solid red;
-
   }
 
   .div-titulos{
@@ -148,8 +146,6 @@
     border-radius: 12px;
     box-shadow: 0 0 5px #ddd;
     flex-shrink: 0;
-
-    border: thin solid yellow;
   }
   
   .carousel-btn {
