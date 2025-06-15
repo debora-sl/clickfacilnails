@@ -22,6 +22,16 @@ angular.module('meuApp')
             precoServico: 0
         }
 
+        // Função que limpa o formulário
+        $scope.limpar = function () {
+            $scope.novoServico = {
+                tipoServico: '',
+                statusServico: '',
+                duracaoServico: '',
+                precoServico: 0
+            }
+        }
+
         // Variavel para listar serviços
         $scope.acao = 'listando';
 
@@ -95,6 +105,29 @@ angular.module('meuApp')
             $http.post($urlServicoCadastrar, servicoParaEnviar, $config).then(function (response) {
                 if (response.status == 201) {
                     console.log('Serviço cadastrado: ', $scope.novoServico);
+
+                    Swal.fire({
+                        title: "Serviço cadastrado!",
+                        text: "Deseja cadastrar um novo serviço?!",
+                        icon: "success",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Sim, cadastrar um novo!",
+                        cancelButtonText: "Não, eu acabei!"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $scope.$apply(function () {
+                                // reinicia o formulário
+                                $scope.limpar();
+                            });
+                        } else {
+                            $scope.$apply(function () {
+                                // lista os serviços
+                                $scope.acao = 'listando';
+                            });
+                        }
+                    });
 
                 }
 

@@ -11,6 +11,7 @@ angular.module('meuApp')
 
             $http.get($urlAgendamentoListar).then(function (response) {
                 if (response.status == 200) {
+                    console.log('Lista de Agendamentos: ');
 
                 }
 
