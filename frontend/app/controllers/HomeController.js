@@ -12,7 +12,7 @@ angular.module('meuApp')
             $http.get($urlServicoListar).then(function (response) {
                 if (response.status == 200) {
                     $scope.servicos = response.data.servicos;
-                    console.log('Serviços: ', $scope.servicos);
+                    console.log('Serviços: Cadastrados ', $scope.servicos);
                 }
 
             }, function (error) {
