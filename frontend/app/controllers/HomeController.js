@@ -7,6 +7,8 @@ angular.module('meuApp')
 
         // Função que lista os servicos
         $scope.servicoListar = function () {
+
+            // ajustar serviços para aparecer em linha
             $urlServicoListar = 'http://localhost:8000/api/servicos/servicoListar';
 
             $http.get($urlServicoListar).then(function (response) {
